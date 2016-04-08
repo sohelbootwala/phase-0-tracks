@@ -1,0 +1,20 @@
+img.center {display: block;
+  margin-left: auto;
+  margin-right: auto;}
+#hat1.center { display: block;
+				  position: absolute;
+				  left: 0px;
+				  right: 0px;
+				  top: 100px;
+				z-index: 1}
+
+#octopus2.center {display: block;
+				  position: absolute;
+				  margin-top: 150px;
+				  left: 0px;
+				  right: 25px;
+				  z-index: 2
+				  bottom: 100px;}
+
+#glasses3.center  {display: block;
+					margin-bottom: 200px;}
