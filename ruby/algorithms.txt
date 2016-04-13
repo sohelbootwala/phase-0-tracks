@@ -1,0 +1,10 @@
+-For each person that presses the call button.
+	-Until the door doesn't open, do not try to enter. 
+	-Enter the elevator when doors are safely open. 
+	-Wait until doors are closed. 
+	-Select desired floor.
+- If no button is pressed:
+	-Close doors and wait Until next time elevator is called.
+- Otherwise:
+	-Proceed to selected floor. 
+- Wait for next elevator request. 
