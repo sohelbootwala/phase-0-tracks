@@ -1,48 +1,58 @@
 
-p "Whats your name?"
-name = gets.chomp
 
-p "How old are you?"
+puts "How many employees will be taking the survey?"
+employees = gets.chomp.to_i
+while employees > 0 
+
+puts "Whats your name?"
+name = gets.chomp.downcase
+
+puts "How old are you?"
 age = gets.chomp.to_i
 
-p "What year were you born in?"
+puts "What year were you born in?"
 year = gets.chomp.to_i
 
-p "Do you like garlic bread?(TRUE/FALSE)"
+puts "Do you like garlic bread?(TRUE/FALSE)"
 garlic = gets.chomp.downcase
 
-p "Do you want to enroll in company insurance?(TRUE/FALSE)"
+puts "Do you want to enroll in company insurance?(TRUE/FALSE)"
 insurance = gets.chomp.downcase
 
-if age + year == 2016 && (garlic || insurance)
-	p "Probably not a Vampire."
+allergies = "null"
+
+while ((allergies != "done") &&(allergies!= "sunshine"))
+puts "List any allergies, then type done, if you do not have any allergies just type done."
+
+allergies = gets.chomp.downcase
+
 end
 
-if age + year != 2016 && (garlic || insurance)
-	p "Probably a Vampire."
+result = 'Result inconclusive'
+if age + year == 2016 && (garlic || insurance )
+	result = "Probably not a Vampire."
 end
 
-if age + year != 2016 && (garlic || insurance)
-	p "Most certainly a Vampire."
+if age + year != 2016 && ( garlic =="false"|| insurance=="false" )
+	result = "Probably a Vampire."
+end 
+
+if age + year != 2016 &&  garlic =="false" && insurance=="false"
+	result = "Most certainly a Vampire."
 end
 
-if name = "drake cula" || "tu fang"
-	p "Definitely a Vampire."
+if allergies =="sunshine"
+	result = "Probably a Vampire."
+end
+
+if name == "drake cula" || name == "tu fang"
+	result = "Definitely a Vampire."
 end
 
 
-=begin
-wolves_like_sunshine = true
-wolves_like_garlic = true
-vampires_like_sunshine = false
-vampires_like_garlic = false
+puts result
 
-wolves_like_garlic && wolves_like_sunshine
-wolves_like_garlic || vampires_like_garlic
-wolves_like_garlic && vampires_like_garlic
-wolves_like_garlic && (vampires_like_sunshine || vampires_like_garlic)
-(wolves_like_garlic && vampires_like_garlic) || wolves_like_sunshine
-vampires_like_garlic
-vampires_like_garlic
-!(wolves_like_sunshine && wolves_like_garlic)
-=end
+
+employees -= 1
+end
+
