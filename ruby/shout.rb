@@ -12,27 +12,27 @@
 # p Shout.yell_angrily("fuck this shit")
 
 # p Shout.yelling_happily("I love everything")
-
-module YellingMyHeadOff
-def yelling_happy(nice_words)
-	nice_words + "!!!!"
-end
+module Yelling
 def yelling_unhappy(mean_words)
 	mean_words + "!!!!"
 end
-
+end
+module Talking
+def yelling_happy(nice_words)
+	nice_words + "!!!!"
+end
 end
 
 class HappyGuy
-	include yelling_happy
+	include Talking
 end
 
 class UnhappyGuy
-	include yelling_unhappy
+	include Yelling
 end
 
-unhappy = UnhappyGuy.new
-unhappy.yelling_unhappy("fuck you asshole")
+p unhappy = UnhappyGuy.new
+p unhappy.yelling_unhappy("fuck you asshole")
 
-happy = HappyGuy.new
-happy.yelling_happy("life is amazing")
+p happy = HappyGuy.new
+p happy.yelling_happy("life is amazing")
