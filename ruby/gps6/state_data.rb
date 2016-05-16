@@ -1,6 +1,7 @@
 #population density is number of people per square mile as of 2012
 #this data is updated every year with estimates from a 10 year census
 
+WAMbat = "mammal"
 
 STATE_DATA = {
   "Alabama" => {population_density: 94.65, population: 4822023},
@@ -54,4 +55,13 @@ STATE_DATA = {
   "West Virginia" => {population_density: 77.06, population: 1855413},
   "Wisconsin" => {population_density: 105.2, population: 5726398},
   "Wyoming" => {population_density: 5.851, population: 576412}
+
+
+
+
+
+
+
+
+
 }

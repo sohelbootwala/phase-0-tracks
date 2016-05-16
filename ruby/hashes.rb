@@ -45,8 +45,8 @@ puts "Would you like to update any questions previously asked?(Yes/No)"
 	puts "Enter the information content"
 	value = gets.chomp
 	interior_designer_job[id.to_sym]=value
-	# new_hash = {id.to_sym => value}
-	# interior_designer_job.merge!(new_hash)
+	new_hash = {id.to_sym => value}
+	interior_designer_job.merge!(new_hash)
 
 end
 
