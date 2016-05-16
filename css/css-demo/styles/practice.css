@@ -1,0 +1,26 @@
+#contact-info {
+	font-size: .8em;
+}
+
+.job {
+	background: #e9e5dc;
+	padding-left:50px;
+	padding-bottom: 3px;
+	padding-top:1px;
+	border-radius: 25px;
+	height: 200px;
+	margin-top:20px;
+	margin-bottom: 20px;
+}
+
+.specs {
+		font-size: .8em;
+	}
+a:hover {
+	color: yellow;
+}
+
+ul :nth-child(2) {
+		color: blue;
+
+}
