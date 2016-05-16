@@ -38,8 +38,4 @@
 “How many times does the letter ‘a’ appear in this string?”.count("a")
 => 4
 
-<<<<<<< HEAD
-# commiting
-=======
 # completel
->>>>>>> e2b543749cd74406e862ca71b8d3ee610d9974dc
