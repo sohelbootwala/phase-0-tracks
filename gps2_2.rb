@@ -41,19 +41,37 @@ def create_list(list)
   return grocery_list
 end
 
-def add(list, item)
-  list[item] = 1
+def add(final_list, item)
+  final_list[item] = 1
   puts final_list
 end
 
-def delete(list, item)
+def delete(final_list, item)
   final_list.delete("peanuts")
   puts final_list
 end
 
+def update(final_list, item, int)
+  final_list[item] = int
+  puts final_list
+end
+
+def print_list(final_list)
+  final_list.each {|item, qty| puts "#{item} has #{qty} in inventory"}
+end
+  
+  
 list = ("bananas milk yogurt eggs bread")
 final_list = create_list(list)
-add(create_list(list),"peanuts")
+puts final_list
+add(final_list, "peanuts")
+delete(final_list, "peanuts")
+update(final_list, "bananas", 54)
 
-# add(final_list, "peanuts")
-# delete(final_list, "peanuts")
+print_list(final_list)
+
+
+
+
+
+
