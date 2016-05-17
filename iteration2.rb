@@ -6,3 +6,7 @@ food_inventory = {
 		:tomatos => 90,
 		:berries => 700
 }
+# looping through a hash using .each
+#looping through an array uisng .each
+#looping through an array uisng .map!
+# looping through a hash using .map
