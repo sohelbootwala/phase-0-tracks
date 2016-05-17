@@ -55,3 +55,9 @@ puts coffee_shops_halsted[:kristoffers_cafe][:speciality].reverse
 puts coffee_shops_halsted[:peets_coffee][:sizes][0]
 
 
+
+
+
+
+
+
