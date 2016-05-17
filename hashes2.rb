@@ -5,3 +5,11 @@
 # 3. print the hash back out to the screen which the designer has answered all the questions
 # 4. let user update information
 # 5. print the latest version of the hash and exit
+
+interior_designer_job = {
+	# name: "Lu Meng",
+	# age: 18,
+	# number_children: 0,
+	# decor_theme: "grasses",
+	# car: "true"
+}
