@@ -1,10 +1,8 @@
-# Pseudocode 
-# 1. Swap the first and last name.
-# 	-make the string of words into an array
-# 	-split the array
-# 	-join the array and print
-# 2. Change vowels to the next vowel 
-# 	Change consanent to next constanent
+# Take a spy's real name and make it into a spy name.
+# - Swap the first and last name
+# - use the next vowel for each in name
+# - use next consonant for each letter
+# example : Sohel => Tuiim
 
 # How will you convert string to an array
 # How will you figure out if a letter is a vowel
@@ -12,16 +10,20 @@
 # How will you handle edge cases
 
 
+
 def reverse(name)
-	new_name = name.split(' ')
-	new_name.reverse!
-	new_string = new_name.join('')
+	name_array = name.split(' ')
+	name_array.reverse!
+	new_string = name_array.join(' ')
 	return new_string
 end
 
-def next_vowel(letter)
+
+
+def vowel(letter)
+
 vowels = "aeiouAEIOU"
-index_vowels = vowels.index(letter)
+		original_index = vowels.index(letter)
 		if letter == " "
 			letter = " "
 		elsif letter == "u"
@@ -29,15 +31,15 @@ index_vowels = vowels.index(letter)
 		elsif letter == "U"
 			letter = "A"
 		else
-			vowels[index_vowels+1]
+			letter = vowels[original_index+1]
 		end
-		letter
-	end
+	letter
 end
 
-def next_constanents(letter)
-constanents = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
-index_constanents = constanents.index(letter)
+
+def consonants(letter)
+consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNOPQRSTVWXYZ"
+		original_index = consonants.index(letter)
 		if letter == " "
 			letter = " "
 		elsif letter == "z"
@@ -45,27 +47,50 @@ index_constanents = constanents.index(letter)
 		elsif letter == "Z"
 			letter = "B"
 		else
-			constanents[index_constanents+1]
+			letter = consonants[original_index+1]
 		end
-		letter
-	end
+	letter
 end
 
 def make_array(name)
-	reverse(letter)
-	if letters = "aeiou".include?
-		letters
-	elsif letters = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ".include?
-		letters
-	elsif letters = " "
-		letters == " "
+	new_letters = name.chars
+	new_letters.map! do |letter|
+		if "aeiouAEIOU".include?letter #if letter is vowel
+			letter = vowel(letter)
+		elsif "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNOPQRSTVWXYZ".include?letter
+			letter = consonants(letter)
+		else
+			letter == " "
+			letter = " "
+		end
 	end
+	new_letters.join()
+end 
+
+
+name = "init name" #initial variable of name
+name_space={ } #hash for saving agent name
+ i=0 #iterater
+
+ while name != "quit"
+
+   puts 'What is your name?'
+   name = gets.chomp
+
+    if name !="quit"
+       reversed_name = reverse(name)
+       final_name = make_array(reversed_name)
+       name_space[name]=final_name
+    end
+ i+=1
+ puts "#{final_name}" + " is actually " +"#{name}!"
 end
+puts name_space
 
 
 
 
-end
+# method to make a name an array
 
 
 
