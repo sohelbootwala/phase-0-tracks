@@ -6,6 +6,10 @@
 # 2. Change vowels to the next vowel 
 # 	Change consanent to next constanent
 
+# How will you convert string to an array
+# How will you figure out if a letter is a vowel
+# How will you deal some letters being upcase
+# How will you handle edge cases
 
 
 def reverse(name)
@@ -15,7 +19,7 @@ def reverse(name)
 	return new_string
 end
 
-def vowels
+def next_vowel(letter)
 vowels = "aeiouAEIOU"
 index_vowels = vowels.index(letter)
 		if letter == " "
@@ -31,7 +35,7 @@ index_vowels = vowels.index(letter)
 	end
 end
 
-def constanents
+def next_constanents(letter)
 constanents = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ"
 index_constanents = constanents.index(letter)
 		if letter == " "
@@ -42,6 +46,33 @@ index_constanents = constanents.index(letter)
 			letter = "B"
 		else
 			constanents[index_constanents+1]
+		end
+		letter
+	end
 end
+
+def make_array(name)
+	reverse(letter)
+	if letters = "aeiou".include?
+		letters
+	elsif letters = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ".include?
+		letters
+	elsif letters = " "
+		letters == " "
+	end
+end
+
+
+
+
+end
+
+
+
+
+
+
+
+
 
 
