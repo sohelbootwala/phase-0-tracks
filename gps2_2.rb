@@ -33,3 +33,27 @@
 # steps:
   # use .each to print key-value pairs
 # output: hash
+
+def create_list(list)
+  list = list.split(' ')
+  grocery_list = {}
+  list.each { |item, qty| grocery_list[item] = 1 }
+  return grocery_list
+end
+
+def add(list, item)
+  list[item] = 1
+  puts final_list
+end
+
+def delete(list, item)
+  final_list.delete("peanuts")
+  puts final_list
+end
+
+list = ("bananas milk yogurt eggs bread")
+final_list = create_list(list)
+add(create_list(list),"peanuts")
+
+# add(final_list, "peanuts")
+# delete(final_list, "peanuts")
