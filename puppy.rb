@@ -1,3 +1,8 @@
+# Create a class 
+# The class should have instance variables
+# They should be different instance variables to describe the class
+
+
 BREED #(class)
 St. Bernard#(instance)
 
