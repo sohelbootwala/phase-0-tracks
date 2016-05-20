@@ -6,16 +6,15 @@
 # Dragon has a birth place
 
 class Dragon
+	
+
+
 	def initialize(dragon_name, destination, age)
 		puts "Ha ah ha ha I'm a big mean DRAGON........."
 		@dragon_name = dragon_name
 		@destination = destination
 		@age = age
 	end
-
-
-
-
 	def breathe_fire
 	  puts "WHOOOOOOMPH! *sizzle*"
 	end
@@ -31,9 +30,14 @@ class Dragon
 	 def profile 
 	 	puts "My name is #{@dragon_name}"
 	end
+	def birthday
+		birthday = @age + 1
+		puts "That makes #{@dragon_name} #{birthday} years old"
+	end
 end
 
 dragon = Dragon.new("Computus Trigerous", "Paris", 250)
 dragon.profile
-# dragon.farmers("cows")
 dragon.flys_away
+dragon.birthday
+dragon.farmers("cows")
