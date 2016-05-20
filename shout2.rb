@@ -1,15 +1,28 @@
 module Shout
-	
-	def self.yell_angrily(words)
-		words + '!!!' + ':('
+	def yell_angrily(words)
+		puts words + '!!!' + ':('
 	end
-	def self.yell_happily(words)
-		words + '!!!' + ':)'
+	def yell_happily(words)
+		puts words + '!!!' + ':)'
 	end
-
 end
 
-puts Shout.yell_angrily("NOOOOOOOO")
-puts Shout.yell_happily("YESSS i win")
+
+
+
+
+class HappyGuy
+	include Shout
+end
+class UnHappyGuy
+	include Shout
+end
+
+happy = HappyGuy.new
+happy.yell_happily("I'm so happy")
+
+unhappy = UnHappyGuy.new
+unhappy.yell_angrily("I'm so pissed off")
+
 
 
