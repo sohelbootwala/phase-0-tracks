@@ -57,11 +57,70 @@ function matchPairs(person1, person2) {
 			console.log(false)
 		}
 	}
+
 var results1 = matchPairs(person1, person2);
 var results2 = matchPairs(person1, person3);
 
-
-
-
 // Release 2: Generate Random Test Data
+// function should take an integer of length
+// -build an aray of strings of the given length
+// -the array should have generate random words 
+// -with random lengths
+// -The words should be of randomly varying length, 
+// with a minimum of 1 letter and a maximum of 10 letters.
+// -Driver code should generate an array
+// -Print the array
+// -feed the array to my longestPhrase function
+// -and prints the results 
+
+var array = []
+function randomTest(int) {
+	for (var i = 0; i < int; i++) {
+		word_length = Math.floor((Math.random()* 10) + 1);
+		var word = "";
+		for (var j = 0; j < word_length; j++) {
+		letter = String.fromCharCode(97 + Math.floor(Math.random() * 26));
+		word = word + letter;
+		}
+		array.push(word);
+	}
+	return array;
+}
+
+var phone = randomTest(6)
+console.log(phone)
+console.log("This is the longest phrase:" + " " + longestPhrase(phone))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
