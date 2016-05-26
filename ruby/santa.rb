@@ -123,10 +123,10 @@ while i<100 do
 santa = Santa.new("mail", "human")
 
 index_of_ethnicity = rand(0..santa.ethnicity.length)
-p santa.ethnicity[index_of_ethnicity]
-p santa.celebrate_birthday
+puts santa.ethnicity[index_of_ethnicity]
+puts santa.celebrate_birthday
 index_of_gender = rand(0..santa.gender.length)
-p santa.gender[index_of_gender]
+puts santa.gender[index_of_gender]
 
 i+=1
 end

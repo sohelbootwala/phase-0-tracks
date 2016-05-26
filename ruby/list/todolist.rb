@@ -2,7 +2,7 @@ class TodoList
 
 
 def initialize(item)
-	@item = item
+	
 	return item
 end
 

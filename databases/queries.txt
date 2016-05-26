@@ -1,0 +1,30 @@
+ 
+
+
+
+sqlite> SELECT * FROM teacher;
+Tim Noosa|123 Happy Ln|98765|false|9
+Jim Lahey|Sunnyvale|12345|false|8
+Ricky Top|Sunnyvale|87677|true|7
+Lucy Top|Someral|23454|true|3
+sqlite> UPDATE teacher SET address = "Stonecreek" WHERE name = "TimNoosa";
+sqlite> SELECT * FROM teacher, class WHERE teacher.teacherid = class.teacherid;
+Tim Noosa|123 Happy Ln|98765|false|9|82|10|Gym|9
+Jim Lahey|Sunnyvale|12345|false|8|83|11|Health|8
+Ricky Top|Sunnyvale|87677|true|7|86|1|Anatomy|7
+Lucy Top|Someral|23454|true|3|81|9|English|3
+sqlite> SELECT name FROM teacher UNION SELECT subject FROM class;
+Anatomy
+English
+Gym
+Health
+Jim Lahey
+Lucy Top
+Ricky Top
+Tim Noosa
+sqlite> DELETE FROM teacher WHERE name="Jim Lahey";
+sqlite> SELECT * FROM teacher;
+Tim Noosa|123 Happy Ln|98765|false|9
+Ricky Top|Sunnyvale|87677|true|7
+Lucy Top|Someral|23454|true|3
+sqlite> 
