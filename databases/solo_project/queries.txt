@@ -1,0 +1,86 @@
+Release 2: Execute SQL Queries
+1.Display the information in one table (either table is fine).
+sqlite> select * from teacher;
+id          name        vegetarian  teacher_id
+----------  ----------  ----------  ----------
+1           Ricky Top   false       9
+2           Lucy Top    true        3
+3           Jim Lahey   false       7
+4           Julian Val  false       8
+
+
+2.Update an item that meets some condition (you can choose a condition that makes sense).
+sqlite> SELECT name FROM teacher WHERE vegetarian="false";
+name
+----------
+Ricky Top
+Jim Lahey
+Julian Val
+
+3.Display the information in both tables using one query.
+
+sqlite> SELECT * FROM teacher, class WHERE teacher.teacher_id = class.teacherid;
+id          name        vegetarian  teacher_id  classid     start       subject     teacherid
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------
+1           Ricky Top   false       9           82          10          Gym         9
+2           Lucy Top    true        3           81          9           English     3
+3           Jim Lahey   false       7           86          1           Anatomy     7
+4           Julian Val  false       8           83          11          Health      8
+
+4. Display a narrower selection of columns (fewer columns than all of them, in other words) from both tables using one query.
+sqlite> SELECT teacher.name, class.subject FROM teacher, class WHERE teacher.teacher_id = class.teacherid;
+name        subject
+----------  ----------
+Ricky Top   Gym
+Lucy Top    English
+Jim Lahey   Anatomy
+Julian Val  Health
+
+5.Delete an item that meets some condition (you can choose a condition that makes sense).
+sqlite> DELETE FROM teacher WHERE vegetarian="true";
+sqlite> SELECT * FROM teacher;
+id          name        vegetarian  teacher_id
+----------  ----------  ----------  ----------
+1           Ricky Top   false       9
+3           Jim Lahey   false       7
+4           Julian Val  false       8
+
+Release 3
+
+select teacher.name, class.subject FROM teacher JOIN class ON teacher.teacher_id = class.teacherid;
+name        subject
+----------  ----------
+Ricky Top   Gym
+Jim Lahey   Anatomy
+Julian Val  Health
+
+select class.subject, teacher.name FROM teacher JOIN class ON teacher.teacher_id = class.teacherid;
+subject     name
+----------  ----------
+Gym         Ricky Top
+Anatomy     Jim Lahey
+Health      Julian Val
+
+select class.subject, teacher.name, teacher.vegetarian FROM teacher JOIN class ON teacher.teacher_id = class.teacherid;
+subject     name        vegetarian
+----------  ----------  ----------
+Gym         Ricky Top   false
+Anatomy     Jim Lahey   false
+Health      Julian Val  false
+
+select teacher.name, class.subject, teacher.vegetarian FROM teacher JOIN class ON teacher.teacher_id = class.teacherid;
+name        subject     vegetarian
+----------  ----------  ----------
+Ricky Top   Gym         false
+Jim Lahey   Anatomy     false
+Julian Val  Health      false
+
+
+
+
+
+
+
+
+
+

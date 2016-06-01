@@ -31,7 +31,7 @@ vowels = "aeiouAEIOU"
 		elsif letter == "U"
 			letter = "A"
 		else
-			letter = vowels[original_index+1]
+			letter = vowels[original_index.next]
 		end
 	letter
 end
@@ -47,7 +47,7 @@ consonants = "bcdfghjklmnpqrstvwxyzBCDFGHJKLMNOPQRSTVWXYZ"
 		elsif letter == "Z"
 			letter = "B"
 		else
-			letter = consonants[original_index+1]
+			letter = consonants[original_index.next]
 		end
 	letter
 end
@@ -67,25 +67,27 @@ def make_array(name)
 	new_letters.join()
 end 
 
+p make_array('sohel bootwala')
 
-name = "init name" #initial variable of name
-name_space={ } #hash for saving agent name
- i=0 #iterater
 
- while name != "quit"
+# name = "init name" #initial variable of name
+# name_space={ } #hash for saving agent name
+#  i=0 #iterater
 
-   puts 'What is your name?'
-   name = gets.chomp
+#  while name != "quit"
 
-    if name !="quit"
-       reversed_name = reverse(name)
-       final_name = make_array(reversed_name)
-       name_space[name]=final_name
-    end
- i+=1
- puts "#{final_name}" + " is actually " +"#{name}!"
-end
-puts name_space
+#    puts 'What is your name?'
+#    name = gets.chomp
+
+#     if name !="quit"
+#        reversed_name = reverse(name)
+#        final_name = make_array(reversed_name)
+#        name_space[name]=final_name
+#     end
+#  i+=1
+#  puts "#{final_name}" + " is actually " +"#{name}!"
+# end
+# puts name_space
 
 
 
