@@ -22,13 +22,6 @@ patient_info_table = <<-SQL
 		)
 		SQL
 db.execute(patient_info_table)
-# puts db.class
-# p db
-# Create methods to execute each function of the nurse
-# method to add new patients
-# method to update current patient
-# method to schedule appointment
-# method to update appointments
 
 calender_info_table = <<-SQL
 	CREATE TABLE IF NOT EXISTS calender(
@@ -37,37 +30,62 @@ calender_info_table = <<-SQL
 		SQL
 db.execute(calender_info_table)
 
+full_name = ' '
+dob = ' '
+insurance = ' '
 
-db.execute("INSERT INTO patient_info (name, dob, insurance) 
-		VALUES ('Lu Meng', '1991-07-24', 'Cigna'),
- 	 		 ('Sohel Bootwala', '1990-10-19', 'Uninsured'),
-	 		 ('Aziz Bootwala', '1958-07-07', 'Obamacare')")
+def new_patient(full_name, dob, insurance)
 
+	db.execute("INSERT INTO patient_info (name, dob, insurance) 
+			VALUES ('#{full_name},' '#{dob}', '#{insurance}')")
 
-patient = db.execute("SELECT * FROM patient_info")
-# puts patient.class
- p patient 
+end
+teeth = new_patient(full_name, dob, insurance)
+p teeth
 
+# patient = db.execute("SELECT * FROM patient_info")
 
-# patient_info = []
-# puts "Would you like to add a patient(y/n)"
-# first_question = gets.chomp[0].downcase
+# Create methods to execute each function of the nurse
+# method to add new patients
+# method to update current patient
+# method to schedule appointment
+# method to update appointments
 
+patient_info = []
+i = 0
+
+while first_question != "d"
+
+	puts "Would you like to add a patient(y/n)"
+	first_question = gets.chomp[0].downcase
+
+	if name != "d"
+		new_new = new_patient(full_name, dob, insurance)
+
+	puts "What is the Patients full name?"
+		full_name = gets.chomp
+	puts "What is the Patients Date of Birth?(YEAR-MM-DD)"
+		dob = get.chomp.to_i
+	puts "What is the Patients Insurance Provider?"
+		insurance = gets.chomp
+	end
+	i+=1
+end
 # i = 0
 # while true
 # if first_question == "y"
-# 	puts "What is the Patients full name?"
-# 		full_name = gets.chomp
-# 		patient_info[i].push(full_name)
-# 	puts "What is the Patients Date of Birth?(YEAR-MM-DD)"
-# 		dob = get.chomp.to_i
-# 		patient_info[i].push(dob)
-# 	puts "What is the Patients Address?"
-# 		address = gets.chomp
-# 		patient_info[i].push(address)
-# 	puts "What is the Patients Insurance Provider?"
-# 		insurance = gets.chomp
+	# puts "What is the Patients full name?"
+	# 	full_name = gets.chomp
+	# 	patient_info[i].push(full_name)
+	# puts "What is the Patients Date of Birth?(YEAR-MM-DD)"
+	# 	dob = get.chomp.to_i
+	# 	patient_info[i].push(dob)
+	# puts "What is the Patients Address?"
+	# 	address = gets.chomp
+	# 	patient_info[i].push(address)
+	# puts "What is the Patients Insurance Provider?"
+	# 	insurance = gets.chomp
 # 		patient_info[i].push(insurance)
-# 	i+=1
+# # 	i+=1
 # end
 
