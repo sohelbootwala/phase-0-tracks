@@ -1,0 +1,17 @@
+sqlite> .header on
+sqlite> .mode column
+sqlite> SELECT users.first_name, users.last_name, businesses.name, reviews.stars FROM users INNER JOIN reviews ON users.id=reviews.user_id INNER JOIN businesses ON reviews.user_id=businesses.id;
+first_name  last_name   name          stars
+----------  ----------  ------------  ----------
+Mandy       Kaling      Amirs Towing  4
+Bradford    Pitt        Grundy Hollo  5
+Angela      Jolie       The Beagle N  3
+Bradford    Pitt        Grundy Hollo  2
+Mandy       Kaling      Amirs Towing  1
+
+
+SELECT users.first_name, users.last_name, businesses.name, reviews.stars FROM users INNER JOIN reviews ON users.id=reviews.user_id INNER JOIN businesses ON reviews.user_id=businesses.id WHERE businesses.id > 2;
+
+first_name  last_name   name                  stars
+----------  ----------  --------------------  ----------
+Angela      Jolie       The Beagle Nightclub  3
