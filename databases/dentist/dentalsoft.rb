@@ -10,67 +10,103 @@
 
 require 'sqlite3'
 
-db = SQLite3::Database.new("dentalsoft_database.db")
 
-patient_info_table = <<-SQL
-	CREATE TABLE IF NOT EXISTS patient_info(
-		id INTEGER PRIMARY KEY,
-		name VARCHAR(255),
-		dob DATE,
-		insurance VARCHAR(255),
-		FOREIGN KEY (id) REFERENCES calender(patient_id)
-		)
-		SQL
-db.execute(patient_info_table)
 
-calender_info_table = <<-SQL
-	CREATE TABLE IF NOT EXISTS calender(
-		date DATE,
-		patient_id INT)
-		SQL
-db.execute(calender_info_table)
 
-full_name = ' '
-dob = ' '
-insurance = ' '
+	db = SQLite3::Database.new("dentalsoft_database.db")
+	
+	patient_info_table = <<-SQL
+		CREATE TABLE IF NOT EXISTS patient_info(
+			id INTEGER PRIMARY KEY,
+			name VARCHAR(255),
+			dob DATE,
+			insurance VARCHAR(255),
+			FOREIGN KEY (id) REFERENCES calendar(patient_id)
+			)
+			SQL
+	db.execute(patient_info_table)
+	
+	calendar_info_table = <<-SQL
+		CREATE TABLE IF NOT EXISTS calendar(
+			date DATE,
+			patient_id INT)
+			SQL
+	db.execute(calendar_info_table)
 
-def new_patient(full_name, dob, insurance)
 
-	db.execute("INSERT INTO patient_info (name, dob, insurance) 
-			VALUES ('#{full_name},' '#{dob}', '#{insurance}')")
+
+
+
+# method to add new patients
+def new_patient(db, name, dob, insurance)
+	
+	db.execute("INSERT INTO patient_info (name, dob, insurance) VALUES (?, ?, ?)", [name, dob, insurance])
 
 end
-teeth = new_patient(full_name, dob, insurance)
-p teeth
+
+
+
+puts "What is the full name of the patient you want add?"
+name = gets.chomp
+puts "What is your date of birthday(YEAR-MM-DD)"
+dob = gets.chomp
+puts "Who is your insurance provider?"
+insurance = gets.chomp
+
+new_patient(db, name, dob, insurance)
+
+
+# # method to update current patient
+# def update_patient()
+
+# 	db.execute("UPDATE patient_info (#{}) ")
+# end
+
+# # method to schedule appointment
+# def schedule()
+
+# 	db.execute("UPDATE patient_info (#{}) ")
+# end
+
+# # method to update appointments
+# def update_schedule()
+
+# 	db.execute("UPDATE patient_info (#{}) ")
+# end
+
+
+
+# full_name = ' '
+# dob = ' '
+# insurance = ' '
+
+# teeth = new_patient(full_name, dob, insurance)
+# p teeth
 
 # patient = db.execute("SELECT * FROM patient_info")
 
 # Create methods to execute each function of the nurse
-# method to add new patients
-# method to update current patient
-# method to schedule appointment
-# method to update appointments
 
-patient_info = []
-i = 0
+# patient_info = []
+# i = 0
 
-while first_question != "d"
+# while first_question != "d"
 
-	puts "Would you like to add a patient(y/n)"
-	first_question = gets.chomp[0].downcase
+# 	puts "Would you like to add a patient(y/n)"
+# 	first_question = gets.chomp[0].downcase
 
-	if name != "d"
-		new_new = new_patient(full_name, dob, insurance)
+# 	if name != "d"
+# 		new_new = new_patient(full_name, dob, insurance)
 
-	puts "What is the Patients full name?"
-		full_name = gets.chomp
-	puts "What is the Patients Date of Birth?(YEAR-MM-DD)"
-		dob = get.chomp.to_i
-	puts "What is the Patients Insurance Provider?"
-		insurance = gets.chomp
-	end
-	i+=1
-end
+# 	puts "What is the Patients full name?"
+# 		full_name = gets.chomp
+# 	puts "What is the Patients Date of Birth?(YEAR-MM-DD)"
+# 		dob = get.chomp.to_i
+# 	puts "What is the Patients Insurance Provider?"
+# 		insurance = gets.chomp
+# 	end
+# 	i+=1
+# end
 # i = 0
 # while true
 # if first_question == "y"
@@ -88,4 +124,3 @@ end
 # 		patient_info[i].push(insurance)
 # # 	i+=1
 # end
-
