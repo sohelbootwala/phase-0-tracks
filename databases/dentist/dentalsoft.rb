@@ -14,7 +14,7 @@ require 'sqlite3'
 
 
 	db = SQLite3::Database.new("dentalsoft_database.db")
-	
+	db.results_as_hash = true
 	patient_info_table = <<-SQL
 		CREATE TABLE IF NOT EXISTS patient_info(
 			id INTEGER PRIMARY KEY,
@@ -29,7 +29,8 @@ require 'sqlite3'
 	calendar_info_table = <<-SQL
 		CREATE TABLE IF NOT EXISTS calendar(
 			date DATE,
-			patient_id INT)
+			patient_id INT,
+			time INT)
 			SQL
 	db.execute(calendar_info_table)
 
@@ -44,35 +45,59 @@ def new_patient(db, name, dob, insurance)
 
 end
 
+def print_patient_info(db)
+	db.execute("SELECT * FROM patient_info").each do |patient|
+	
 
+	 puts "#{patient['name']} is born on #{patient['dob']}, and is covered by #{patient['insurance']}" 
+	end
+end
 
-puts "What is the full name of the patient you want add?"
-name = gets.chomp
-puts "What is your date of birthday(YEAR-MM-DD)"
-dob = gets.chomp
-puts "Who is your insurance provider?"
-insurance = gets.chomp
-
-new_patient(db, name, dob, insurance)
-
-
-# # method to update current patient
-# def update_patient()
-
-# 	db.execute("UPDATE patient_info (#{}) ")
-# end
 
 # # method to schedule appointment
-# def schedule()
+def schedule(db, date, patient_id, time)
+	db.execute("INSERT INTO calendar (date, patient_id, time) VALUES (?, ?, ?)", [date, patient_id, time])
+end
+	
+	puts "Do you want to add a patient, schedule, or view the patient information, else type done. enter view when you want to view the table"
+	answer = gets.chomp
 
-# 	db.execute("UPDATE patient_info (#{}) ")
-# end
+	if answer == "view"
+		print_patient_info(db)
+	else
 
-# # method to update appointments
-# def update_schedule()
+i = 0
+while answer != "done"
+	
+	puts "What is the full name of the patient you want add? (enter done when you want to exit)"
+	name = gets.chomp
+	
+	if name != "done"
 
-# 	db.execute("UPDATE patient_info (#{}) ")
-# end
+	puts "What is your date of birthday(YEAR-MM-DD)"
+	dob = gets.chomp
+	puts "Who is your insurance provider?"
+	insurance = gets.chomp
+	puts "What is the patient's id that you want to schedule?"
+	patient_id = gets.chomp
+	puts "What date would you like to schedule this patient?"
+	date = gets.chomp
+	puts "What is the time you want to schedule the patient?"
+	time = gets.chomp
+	else
+		break
+	end
+	i+=1
+new_patient(db, name, dob, insurance)
+schedule(db, date, patient_id, time)
+end
+end
+
+
+
+# puts schedule
+
+
 
 
 
