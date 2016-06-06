@@ -59,8 +59,8 @@ def schedule(db, date, patient_id, time)
 	db.execute("INSERT INTO calendar (date, patient_id, time) VALUES (?, ?, ?)", [date, patient_id, time])
 end
 	
-	puts "Do you want to add a patient, schedule, or view the patient information, else type done. enter view when you want to view the table"
-	answer = gets.chomp
+puts "Do you want to add a patient, schedule, or view the patient information, else type done. enter view when you want to view the table"
+answer = gets.chomp
 
 	if answer == "view"
 		print_patient_info(db)
@@ -94,58 +94,3 @@ end
 end
 
 
-
-# puts schedule
-
-
-
-
-
-# full_name = ' '
-# dob = ' '
-# insurance = ' '
-
-# teeth = new_patient(full_name, dob, insurance)
-# p teeth
-
-# patient = db.execute("SELECT * FROM patient_info")
-
-# Create methods to execute each function of the nurse
-
-# patient_info = []
-# i = 0
-
-# while first_question != "d"
-
-# 	puts "Would you like to add a patient(y/n)"
-# 	first_question = gets.chomp[0].downcase
-
-# 	if name != "d"
-# 		new_new = new_patient(full_name, dob, insurance)
-
-# 	puts "What is the Patients full name?"
-# 		full_name = gets.chomp
-# 	puts "What is the Patients Date of Birth?(YEAR-MM-DD)"
-# 		dob = get.chomp.to_i
-# 	puts "What is the Patients Insurance Provider?"
-# 		insurance = gets.chomp
-# 	end
-# 	i+=1
-# end
-# i = 0
-# while true
-# if first_question == "y"
-	# puts "What is the Patients full name?"
-	# 	full_name = gets.chomp
-	# 	patient_info[i].push(full_name)
-	# puts "What is the Patients Date of Birth?(YEAR-MM-DD)"
-	# 	dob = get.chomp.to_i
-	# 	patient_info[i].push(dob)
-	# puts "What is the Patients Address?"
-	# 	address = gets.chomp
-	# 	patient_info[i].push(address)
-	# puts "What is the Patients Insurance Provider?"
-	# 	insurance = gets.chomp
-# 		patient_info[i].push(insurance)
-# # 	i+=1
-# end
