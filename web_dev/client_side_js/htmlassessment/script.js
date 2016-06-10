@@ -11,7 +11,7 @@ function addBlueBorder(event) {
 var para = document.getElementsByClassName("paragraph");
 addEventListener("click", addBlueBorder);
 
-// var kitten = document.createElement("div");
-// document.body.appendChild(kitten);
-// kitten.class.Name = "container";
-// kitten.style.marginTop = "30px";
+var kitten = document.createElement("div");
+document.body.appendChild(kitten);
+kitten.class.Name = "container";
+kitten.style.marginTop = "30px";
