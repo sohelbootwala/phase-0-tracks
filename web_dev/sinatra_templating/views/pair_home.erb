@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Name and Campus</title>
+
+</head>
+<body>
+  <p> Click <a href="/update/campus">here </a>to update students campus </p>
+    <h1>Student Campus List</h1>
+    <ul>
+      <% @students.each do |student| %>
+      <li><%= student['name']%>,  <%= student['campus']%></li><br> 
+      <% end %>
+    </ul>
+</body>
+</html>
